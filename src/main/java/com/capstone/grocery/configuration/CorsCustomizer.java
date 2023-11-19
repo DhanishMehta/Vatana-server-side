@@ -15,12 +15,12 @@ public class CorsCustomizer {
             CorsConfigurationSource source = s -> {
                 CorsConfiguration cc = new CorsConfiguration();
                 cc.setAllowCredentials(true);
-                cc.setAllowedOrigins(List.of("http://localhost:4200"));
+                cc.setAllowedOrigins(List.of("http://localhost:4200", "https://vatana-dhanish.netlify.app/"));
                 cc.setAllowedHeaders(List.of("*"));
                 cc.setAllowedMethods(List.of("*"));
                 return cc;
             };
- 
+
             c.configurationSource(source);
         });
     }
