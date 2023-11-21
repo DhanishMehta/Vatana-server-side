@@ -18,9 +18,10 @@ public class CorsCustomizer {
                 cc.setAllowCredentials(true);
                 // cc.setAllowedOrigins(List.of("**"));
                 cc.addAllowedOrigin("*");
-                // cc.addAllowedOrigin("https://vatana-dhanish.netlify.app/*");
-                // cc.addAllowedOrigin("https://vatana-dhanish.netlify.app/");
-                // cc.addAllowedOrigin("https://vatana-dhanish.netlify.app");
+                cc.addAllowedOrigin("https://vatana-dhanish.netlify.app/**");
+                cc.addAllowedOrigin("https://vatana-dhanish.netlify.app/*");
+                cc.addAllowedOrigin("https://vatana-dhanish.netlify.app/");
+                cc.addAllowedOrigin("https://vatana-dhanish.netlify.app");
                 cc.setAllowedHeaders(List.of("*"));
                 cc.setAllowedMethods(List.of("*"));
                 return cc;
