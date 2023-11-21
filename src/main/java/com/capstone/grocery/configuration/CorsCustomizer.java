@@ -7,7 +7,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 
-@Component
+@Component 
+// configuration
 public class CorsCustomizer {
 
     public void corsCustomizer(HttpSecurity http) throws Exception {
@@ -15,12 +16,16 @@ public class CorsCustomizer {
             CorsConfigurationSource source = s -> {
                 CorsConfiguration cc = new CorsConfiguration();
                 cc.setAllowCredentials(true);
-                cc.setAllowedOrigins(List.of("*"));
+                // cc.setAllowedOrigins(List.of("**"));
+                cc.addAllowedOrigin("*");
+                // cc.addAllowedOrigin("https://vatana-dhanish.netlify.app/*");
+                // cc.addAllowedOrigin("https://vatana-dhanish.netlify.app/");
+                // cc.addAllowedOrigin("https://vatana-dhanish.netlify.app");
                 cc.setAllowedHeaders(List.of("*"));
                 cc.setAllowedMethods(List.of("*"));
                 return cc;
             };
-
+ 
             c.configurationSource(source);
         });
     }

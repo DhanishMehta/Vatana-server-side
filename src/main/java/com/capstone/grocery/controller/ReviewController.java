@@ -2,7 +2,6 @@ package com.capstone.grocery.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,13 +15,15 @@ import com.capstone.grocery.model.Review;
 import com.capstone.grocery.response.CommonResponse;
 import com.capstone.grocery.service.ReviewService;
 
+import lombok.RequiredArgsConstructor;
+
 @CrossOrigin
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/reviews")
 public class ReviewController {
 
-    @Autowired
-    public ReviewService reviewService;
+    private final ReviewService reviewService;
 
     @GetMapping
     public CommonResponse<List<Review>> getAllReviews(@RequestParam(required = false) String user,

@@ -2,7 +2,6 @@ package com.capstone.grocery.service.implementation;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.capstone.grocery.model.CategoryOfTree;
@@ -11,11 +10,13 @@ import com.capstone.grocery.response.CommonResponse;
 import com.capstone.grocery.service.CategoryService;
 import com.capstone.grocery.utility.Utility;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
-    @Autowired
-    CategoryRepository categoryRepository;
+    private final CategoryRepository categoryRepository;
 
     @Override
     public CommonResponse<CategoryOfTree> getCategory(Integer id) {

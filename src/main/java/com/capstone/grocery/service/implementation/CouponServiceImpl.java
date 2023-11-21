@@ -2,20 +2,22 @@ package com.capstone.grocery.service.implementation;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.capstone.grocery.model.Coupon;
 import com.capstone.grocery.response.CommonResponse;
 import com.capstone.grocery.service.CouponService;
 import com.capstone.grocery.utility.Utility;
+
+import lombok.RequiredArgsConstructor;
+
 import com.capstone.grocery.repository.CouponRepository;
 
+@RequiredArgsConstructor
 @Service
 public class CouponServiceImpl implements CouponService {
 
-    @Autowired
-    CouponRepository couponRepository;
+    private final CouponRepository couponRepository;
 
     @Override
     public CommonResponse<List<Coupon>> getAllCoupons() {

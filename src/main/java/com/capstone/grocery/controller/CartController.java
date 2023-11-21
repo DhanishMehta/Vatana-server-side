@@ -1,6 +1,5 @@
 package com.capstone.grocery.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,13 +15,16 @@ import com.capstone.grocery.model.UserAndProduct;
 import com.capstone.grocery.response.CommonResponse;
 import com.capstone.grocery.service.CartService;
 
+import lombok.RequiredArgsConstructor;
+
 @CrossOrigin
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/cart")
 public class CartController {
 
-    @Autowired
-    CartService cartService;
+    
+    private final CartService cartService;
 
     @PostMapping
     public CommonResponse<User> addProductToCart(@RequestBody UserAndProduct userAndProduct){

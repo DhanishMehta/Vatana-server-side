@@ -3,7 +3,6 @@ package com.capstone.grocery.service.implementation;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -17,11 +16,13 @@ import com.capstone.grocery.response.Pagination;
 import com.capstone.grocery.service.ProductService;
 import com.capstone.grocery.utility.Utility;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Service
 public class ProductServiceImpl implements ProductService {
 
-    @Autowired
-    ProductRepository productRepository;
+    private final ProductRepository productRepository;
 
     @Override
     public CommonResponse<Page<Product>> getAllProducts(Integer limit, Integer page) {

@@ -3,31 +3,27 @@ package com.capstone.grocery.service.implementation;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.capstone.grocery.model.Cart;
 import com.capstone.grocery.model.CartItem;
 import com.capstone.grocery.model.User;
 import com.capstone.grocery.model.product.Product;
-import com.capstone.grocery.repository.OrderRepository;
 import com.capstone.grocery.repository.ProductRepository;
 import com.capstone.grocery.repository.UserRepository;
 import com.capstone.grocery.response.CommonResponse;
 import com.capstone.grocery.service.CartService;
 import com.capstone.grocery.utility.Utility;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Service
 public class CartServiceImpl implements CartService {
 
-    @Autowired
-    ProductRepository productRepository;
+    private final ProductRepository productRepository;
 
-    @Autowired
-    UserRepository userRepository;
-
-    @Autowired
-    OrderRepository orderRepository;
+    private final UserRepository userRepository;
 
     @Override
     public CommonResponse<User> addProductToCart(String productId, String userId) {

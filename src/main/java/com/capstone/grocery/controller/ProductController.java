@@ -2,7 +2,6 @@ package com.capstone.grocery.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,14 +18,16 @@ import com.capstone.grocery.model.product.Product;
 import com.capstone.grocery.response.CommonResponse;
 import com.capstone.grocery.service.ProductService;
 
+import lombok.RequiredArgsConstructor;
+
 
 @CrossOrigin
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/products")
 public class ProductController {
 
-    @Autowired
-    ProductService productService;
+    private final ProductService productService;
 
     @GetMapping
     public CommonResponse<Page<Product>> getAllProducts(@RequestParam(required = false) Integer limit, @RequestParam(required = false) Integer page, @RequestParam(required = false) String fields) {

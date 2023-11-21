@@ -2,7 +2,6 @@ package com.capstone.grocery.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,13 +15,15 @@ import com.capstone.grocery.model.Coupon;
 import com.capstone.grocery.response.CommonResponse;
 import com.capstone.grocery.service.CouponService;
 
+import lombok.RequiredArgsConstructor;
+
 @RestController
 @CrossOrigin
+@RequiredArgsConstructor
 @RequestMapping("/coupons")
 public class CouponController {
 
-    @Autowired
-    CouponService couponService;
+    private final CouponService couponService;
 
 
     @GetMapping

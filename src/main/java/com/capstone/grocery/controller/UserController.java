@@ -2,7 +2,6 @@ package com.capstone.grocery.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,13 +16,15 @@ import com.capstone.grocery.model.User;
 import com.capstone.grocery.response.CommonResponse;
 import com.capstone.grocery.service.UserService;
 
+import lombok.RequiredArgsConstructor;
+
 @CrossOrigin
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/users")
 public class UserController {
 
-    @Autowired
-    UserService userService;
+    private final UserService userService;
 
     @GetMapping
     public CommonResponse<List<User>> getAllUsers() {

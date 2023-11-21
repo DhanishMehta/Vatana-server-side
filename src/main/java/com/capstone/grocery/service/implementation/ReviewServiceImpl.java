@@ -2,7 +2,6 @@ package com.capstone.grocery.service.implementation;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.capstone.grocery.model.Review;
@@ -11,11 +10,13 @@ import com.capstone.grocery.response.CommonResponse;
 import com.capstone.grocery.service.ReviewService;
 import com.capstone.grocery.utility.Utility;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Service
 public class ReviewServiceImpl implements ReviewService {
     
-    @Autowired
-    ReviewRepository reviewRepository;
+    private final ReviewRepository reviewRepository;
 
     @Override
     public CommonResponse<List<Review>> getAllReviews() {

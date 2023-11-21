@@ -2,7 +2,6 @@ package com.capstone.grocery.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,13 +14,15 @@ import com.capstone.grocery.model.CategoryOfTree;
 import com.capstone.grocery.response.CommonResponse;
 import com.capstone.grocery.service.CategoryService;
 
+import lombok.RequiredArgsConstructor;
+
 @CrossOrigin
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/category")
 public class CategoryController {
 
-    @Autowired
-    CategoryService categoryService;
+    private final CategoryService categoryService;
 
     @GetMapping("/{id}")
     public CommonResponse<CategoryOfTree> getCategory(@PathVariable Integer id){
